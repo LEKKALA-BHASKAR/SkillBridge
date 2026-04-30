@@ -17,10 +17,6 @@ class BatchOut(BaseModel):
     model_config = {"from_attributes": True}
 
 
-class InviteCreate(BaseModel):
-    pass  # batch_id comes from path
-
-
 class InviteOut(BaseModel):
     token: str
     expires_at: datetime
