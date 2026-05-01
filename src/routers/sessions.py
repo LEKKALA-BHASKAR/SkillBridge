@@ -1,12 +1,12 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from db import get_db
-from models.batch import Batch, BatchTrainer, BatchStudent
-from models.session import Session as SessionModel
-from models.attendance import Attendance
-from models.user import User
-from schemas.session import SessionCreate, SessionOut, AttendanceRecord
-from core.dependencies import require_roles
+from src.db import get_db
+from src.models.batch import Batch, BatchTrainer, BatchStudent
+from src.models.session import Session as SessionModel
+from src.models.attendance import Attendance
+from src.models.user import User
+from src.schemas.session import SessionCreate, SessionOut, AttendanceRecord
+from src.core.dependencies import require_roles
 from typing import List
 
 router = APIRouter(prefix="/sessions", tags=["sessions"])

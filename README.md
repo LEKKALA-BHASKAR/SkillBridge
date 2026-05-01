@@ -8,16 +8,16 @@ REST API for a state-level skilling programme attendance management system with 
 
 > **Deployment note:** The API is configured for Railway/Render/Fly.io deployment. The Neon PostgreSQL database is live and seeded. Set the `DATABASE_URL` environment variable from the `.env` file in the platform secrets panel.
 >
-> Replace `https://skillbridge-api.up.railway.app` with your actual deployed URL once deployed.
+> Replace `https://skillbridge-704u.onrender.com` with your actual deployed URL once deployed.
 
 ```
-https://skillbridge-api.up.railway.app
+https://skillbridge-704u.onrender.com
 ```
 
 ### Working curl against live deployment
 
 ```bash
-curl -s -X POST https://skillbridge-api.up.railway.app/auth/login \
+curl -s -X POST https://skillbridge-704u.onrender.com/auth/login \
   -H "Content-Type: application/json" \
   -d '{"email":"student01@skillbridge.dev","password":"Password123!"}' | jq .
 ```
@@ -41,10 +41,10 @@ pip install -r requirements.txt
 cp .env.example .env            # edit DATABASE_URL, JWT_SECRET, MONITORING_API_KEY
 
 # Seed the database
-python seed.py
+python -m src.seed
 
 # Run the API
-uvicorn main:app --reload
+uvicorn src.main:app --reload
 ```
 
 The API will be available at `http://localhost:8000`. Interactive docs at `http://localhost:8000/docs`.

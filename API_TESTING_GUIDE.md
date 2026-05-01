@@ -27,14 +27,8 @@ Follow the sections in order — each step builds on the previous one.
 
 ## Base URL
 
+Live:   https://skillbridge-704u.onrender.com
 ```
-Local:  http://localhost:8000
-Live:   https://skillbridge-api.up.railway.app
-```
-
-Set this as a Postman environment variable called `BASE_URL` so you don't retype it.
-
----
 
 ## Postman Setup (do this once)
 
@@ -44,7 +38,7 @@ Set this as a Postman environment variable called `BASE_URL` so you don't retype
 
 | Variable | Initial Value |
 |---|---|
-| `BASE_URL` | `http://localhost:8000` |
+| `BASE_URL` | `https://skillbridge-704u.onrender.com` |
 | `student_token` | *(leave blank — filled automatically)* |
 | `trainer_token` | *(leave blank)* |
 | `inst_token` | *(leave blank)* |
@@ -84,7 +78,7 @@ All passwords are `Password123!`
 **What it does:** Creates a new user account and returns a JWT token.
 
 ```
-POST {{BASE_URL}}/auth/signup
+POST https://skillbridge-704u.onrender.com/auth/signup
 ```
 
 **Headers:**
@@ -203,7 +197,7 @@ Response — **422 Unprocessable Entity:**
 **What it does:** Validates credentials and returns a JWT token.
 
 ```
-POST {{BASE_URL}}/auth/login
+POST https://skillbridge-704u.onrender.com/auth/login
 ```
 
 **Headers:**
@@ -300,7 +294,7 @@ Response — **422 Unprocessable Entity:**
 **What it does:** Exchanges a valid Monitoring Officer JWT + API key for a short-lived, read-only scoped token. This is the only token accepted by `/monitoring/attendance`.
 
 ```
-POST {{BASE_URL}}/auth/monitoring-token
+POST https://skillbridge-704u.onrender.com/auth/monitoring-token
 ```
 
 **Headers:**
@@ -379,7 +373,7 @@ Response — **403 Forbidden:**
 **What it does:** Creates a new training batch under an institution. Trainers are auto-assigned to the batch they create.
 
 ```
-POST {{BASE_URL}}/batches
+POST https://skillbridge-704u.onrender.com/batches
 ```
 
 **Headers:**
@@ -475,7 +469,7 @@ Response — **422 Unprocessable Entity:**
 **What it does:** Creates a single-use invite token that a student can use to join the batch.
 
 ```
-POST {{BASE_URL}}/batches/{{batch_id}}/invite
+POST https://skillbridge-704u.onrender.com/batches/{{batch_id}}/invite
 ```
 
 **Headers:**
@@ -541,7 +535,7 @@ Response — **403 Forbidden:**
 **What it does:** Student uses the invite token to enroll in a batch.
 
 ```
-POST {{BASE_URL}}/batches/join
+POST https://skillbridge-704u.onrender.com/batches/join
 ```
 
 **Headers:**
@@ -624,7 +618,7 @@ Response — **403 Forbidden:**
 **What it does:** Returns aggregated attendance stats for all sessions in a batch.
 
 ```
-GET {{BASE_URL}}/batches/{{batch_id}}/summary
+GET https://skillbridge-704u.onrender.com/batches/{{batch_id}}/summary
 ```
 
 **Headers:**
@@ -684,7 +678,7 @@ Response — **403 Forbidden:**
 **What it does:** Trainer creates a training session under a batch they are assigned to.
 
 ```
-POST {{BASE_URL}}/sessions
+POST https://skillbridge-704u.onrender.com/sessions
 ```
 
 **Headers:**
@@ -809,7 +803,7 @@ Response — **403 Forbidden:**
 **What it does:** Returns the full list of students and their attendance status for a specific session.
 
 ```
-GET {{BASE_URL}}/sessions/{{session_id}}/attendance
+GET https://skillbridge-704u.onrender.com/sessions/{{session_id}}/attendance
 ```
 
 **Headers:**
@@ -896,7 +890,7 @@ Response — **401 Unauthorized:**
 > **Important:** The session's `date` must equal today's date. Use the seeded data or create a new session with today's date.
 
 ```
-POST {{BASE_URL}}/attendance/mark
+POST https://skillbridge-704u.onrender.com/attendance/mark
 ```
 
 **Headers:**
@@ -1038,7 +1032,7 @@ Response — **422 Unprocessable Entity:**
 **What it does:** Returns attendance stats for every batch under a specific institution.
 
 ```
-GET {{BASE_URL}}/institutions/1/summary
+GET https://skillbridge-704u.onrender.com/institutions/1/summary
 ```
 
 **Headers:**
@@ -1108,7 +1102,7 @@ Response — **403 Forbidden:**
 **What it does:** Returns a complete attendance breakdown across all institutions and all batches.
 
 ```
-GET {{BASE_URL}}/programme/summary
+GET https://skillbridge-704u.onrender.com/programme/summary
 ```
 
 **Headers:**
@@ -1191,7 +1185,7 @@ Response — **403 Forbidden:**
 **What it does:** Returns every attendance record in the system across all institutions, batches, and sessions. Read-only. Requires the short-lived **monitoring-scoped token**, not the standard login token.
 
 ```
-GET {{BASE_URL}}/monitoring/attendance
+GET https://skillbridge-704u.onrender.com/monitoring/attendance
 ```
 
 **Headers:**
@@ -1279,7 +1273,7 @@ Response — **401 Unauthorized:**
 **What it does:** The monitoring endpoint is strictly read-only. Any write method is rejected.
 
 ```
-POST {{BASE_URL}}/monitoring/attendance
+POST https://skillbridge-704u.onrender.com/monitoring/attendance
 ```
 
 *(No headers or body needed — it should be rejected before auth)*
@@ -1352,7 +1346,7 @@ Follow this sequence to demo the full system to an interviewer:
 # SECTION 9 — Health Check
 
 ```
-GET {{BASE_URL}}/health
+GET https://skillbridge-704u.onrender.com/health
 ```
 
 No authentication required.

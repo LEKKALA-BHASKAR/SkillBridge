@@ -8,8 +8,8 @@ from fastapi.testclient import TestClient
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from db import Base, get_db
-from main import app
+from src.db import Base, get_db
+from src.main import app
 
 # Use a separate test database if TEST_DATABASE_URL is set, else use main DB
 TEST_DB_URL = os.getenv("TEST_DATABASE_URL", os.getenv("DATABASE_URL"))
@@ -28,7 +28,7 @@ def override_get_db():
 
 @pytest.fixture(scope="session", autouse=True)
 def setup_db():
-    import models  # noqa
+    import src.models  # noqa: F401
     Base.metadata.create_all(bind=test_engine)
     yield
     # Don't drop — leave data for inspection

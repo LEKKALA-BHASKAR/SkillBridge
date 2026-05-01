@@ -1,13 +1,13 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from sqlalchemy import func
-from db import get_db
-from models.batch import Batch, BatchTrainer, BatchStudent, BatchInvite
-from models.session import Session as SessionModel
-from models.attendance import Attendance
-from models.user import User
-from schemas.batch import BatchCreate, BatchOut, InviteOut, JoinBatchRequest, BatchSummary
-from core.dependencies import require_roles, get_current_user
+from src.db import get_db
+from src.models.batch import Batch, BatchTrainer, BatchStudent, BatchInvite
+from src.models.session import Session as SessionModel
+from src.models.attendance import Attendance
+from src.models.user import User
+from src.schemas.batch import BatchCreate, BatchOut, InviteOut, JoinBatchRequest, BatchSummary
+from src.core.dependencies import require_roles, get_current_user
 from datetime import datetime, timedelta
 import secrets
 

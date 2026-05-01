@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from db import get_db
-from models.user import User
-from schemas.user import SignupRequest, LoginRequest, TokenResponse, MonitoringTokenRequest, VALID_ROLES
-from core.auth import hash_password, verify_password, create_token, MONITORING_API_KEY, decode_token
-from core.dependencies import bearer, get_current_user
+from src.db import get_db
+from src.models.user import User
+from src.schemas.user import SignupRequest, LoginRequest, TokenResponse, MonitoringTokenRequest, VALID_ROLES
+from src.core.auth import hash_password, verify_password, create_token, MONITORING_API_KEY, decode_token
+from src.core.dependencies import bearer, get_current_user
 from fastapi.security import HTTPAuthorizationCredentials
 from jose import JWTError
 

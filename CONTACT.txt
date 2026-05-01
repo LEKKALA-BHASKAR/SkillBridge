@@ -1,0 +1,5 @@
+Full Name: Bhaskar Lekkala
+Email: bhaskar.lekkala.18@gmail.com
+Phone: +91 8328142226
+GitHub: https://github.com/LEKKALA-BHASKAR
+Most Challenging Part: The most challenging part of the build was implementing the dual-token monitoring flow while keeping the role and scope checks clean across protected endpoints.

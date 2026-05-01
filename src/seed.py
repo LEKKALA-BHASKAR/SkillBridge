@@ -1,22 +1,19 @@
 """
 Seed the database with test data.
-Run: python seed.py
+Run: python -m src.seed
 """
-import os
-import sys
 from datetime import date, time, datetime, timedelta
 from dotenv import load_dotenv
 
 load_dotenv()
 
-from db import SessionLocal, Base, engine
-import models  # noqa — registers all models
-from models.user import User
-from models.batch import Batch, BatchTrainer, BatchStudent, BatchInvite
-from models.session import Session
-from models.attendance import Attendance
-from core.auth import hash_password
-import secrets
+from src.db import SessionLocal, Base, engine
+import src.models  # noqa: F401 - registers all models
+from src.models.user import User
+from src.models.batch import Batch, BatchTrainer, BatchStudent, BatchInvite
+from src.models.session import Session
+from src.models.attendance import Attendance
+from src.core.auth import hash_password
 
 Base.metadata.create_all(bind=engine)
 

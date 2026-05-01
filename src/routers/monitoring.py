@@ -1,13 +1,13 @@
 from fastapi import APIRouter, Depends, Request
 from fastapi.responses import JSONResponse
 from sqlalchemy.orm import Session
-from db import get_db
-from models.attendance import Attendance
-from models.session import Session as SessionModel
-from models.batch import Batch
-from models.user import User
-from schemas.attendance import MonitoringAttendanceRecord
-from core.dependencies import get_monitoring_user
+from src.db import get_db
+from src.models.attendance import Attendance
+from src.models.session import Session as SessionModel
+from src.models.batch import Batch
+from src.models.user import User
+from src.schemas.attendance import MonitoringAttendanceRecord
+from src.core.dependencies import get_monitoring_user
 from typing import List
 
 router = APIRouter(prefix="/monitoring", tags=["monitoring"])

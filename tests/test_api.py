@@ -5,7 +5,7 @@ At least two tests (signup/login + mark attendance) hit a real test database.
 import uuid
 import pytest
 from jose import jwt
-from core.auth import SECRET, ALGO
+from src.core.auth import SECRET, ALGO
 
 
 def unique_email(prefix="user"):
